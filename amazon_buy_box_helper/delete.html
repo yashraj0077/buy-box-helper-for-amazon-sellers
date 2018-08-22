@@ -1,0 +1,40 @@
+<script>
+
+$(document).ready(function() {
+
+    //onClick append a resizable & draggable div with handles on all 4 corners
+    $('#mega_wrap').click(function(e){
+
+        //Define element css and positioning then add both draggable and resizable from jQuery UI
+        var ele = $("<div>");
+            ele.css({width:"100px", height:"100px", border:"3px dashed white", position:"absolute", left: e.pageX - 50, top: e.pageY -50});
+            ele.draggable();
+             ele.resizable({
+       handles: 'n, e, s, w'
+    });
+
+        //Define elements handles and append them to the new div
+        var eleHandleNE = $("<div class='ui-resizable-handle ui-resizable-ne' id='negrip'>");
+        var eleHandleSE = $("<div class='ui-resizable-handle ui-resizable-se' id='segrip'>");
+        var eleHandleSW = $("<div class='ui-resizable-handle ui-resizable-sw' id='swgrip'>");
+        var eleHandleNW = $("<div class='ui-resizable-handle ui-resizable-nw' id='nwgrip'>");
+
+            eleHandleNE.appendTo(ele);
+            eleHandleSE.appendTo(ele);
+            eleHandleSW.appendTo(ele);
+            eleHandleNW.appendTo(ele);
+
+        //Append new div to the container div called mega_wrap
+        $("#mega_wrap").append(ele);
+
+   }); 
+});
+
+</script>
+
+<div id="mega_wrap">
+    <form class="form-wrapper cf">
+            <input type="text" placeholder="Looking for inspiration..." required>
+            <button type="submit">Search</button>
+    </form>
+</div>

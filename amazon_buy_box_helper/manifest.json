@@ -1,0 +1,40 @@
+
+{
+  "manifest_version": 2,
+  "name":    "Amazon Buybox Tool",
+  "offline_enabled":false,
+
+  "page_action":{
+    "default_title":"Amazon Buybox Tool",
+    "default_popup":"count.html"
+  },
+  "icons": { 
+    "16": "./images/icon16.png",
+    "48": "./images/icon48.png",
+   "128": "./images/icon128.png" 
+  },
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches":    ["https://www.amazon.com/s?marketplaceID*","https://www.amazon.in/s?marketplaceID*",
+                  "https://www.amazon.co.jp/s?marketplaceID*","https://www.amazon.cn/s?marketplaceID*",
+                  "https://www.amazon.com.sg/s?marketplaceID*","https://www.amazon.fr/s?marketplaceID*",
+                  "https://www.amazon.de/s?marketplaceID*","https://www.amazon.it/s?marketplaceID*",
+                  "https://www.amazon.nl/s?marketplaceID*","https://www.amazon.es/s?marketplaceID*",
+                  "https://www.amazon.co.uk/s?marketplaceID*","https://www.amazon.ca/s?marketplaceID*",
+                  "https://www.amazon.com.mx/s?marketplaceID*","https://www.amazon.com.au/s?marketplaceID*",
+                  "https://www.amazon.com.br/s?marketplaceID*"               
+    ],
+    "js":         ["content.js","jquery.js"],
+    "run_at":     "document_idle",
+    "all_frames": false
+  }],
+  "version":"1.2",
+  "description":"You can track Buybox price, Buybox winner, Seller rating and the number of competitors for every product in your store. Now you can use this tool all over the world",
+  "permissions":[
+    "https://www.sellergyan.com/*","http://localhost/*","https://prosellerai.com/*"
+  ]
+
+}
